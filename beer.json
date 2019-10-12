@@ -1,0 +1,36 @@
+{
+  "number" : 6,
+  "beers" : [
+    {
+      "name" : "Guinness",
+      "alcol" : 4.2,
+      "born" :1759,
+    },
+    {
+      "name" : "Hoegaarden",
+      "alcol" : 4.9,
+      "born" :1966,
+    },
+    {
+      "name" : "La Chouffe",
+      "alcol" : 8,
+      "born" :1982,
+    },
+    {
+      "name" : "Kilkenny",
+      "alcol" : 4.3,
+      "born" :1710,
+    },
+    {
+      "name" : "La Trappe",
+      "alcol" : 6.5,
+      "born" :1900,
+    },
+    {
+      "name" : "Carlsberg",
+      "alcol" : 5,
+      "born" :1950,
+    }
+
+  ]
+}
