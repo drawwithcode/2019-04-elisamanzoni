@@ -1,5 +1,6 @@
 var tirolerMusic;
 var trashMusic;
+var analyzer;
 
 function preload(){
 
@@ -20,6 +21,9 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
 
 
+   analyzer = new p5.Amplitude();
+   analyzer.setInput(trashMusic);
+
 
   // put setup code here
 }
@@ -27,6 +31,8 @@ function setup() {
 function draw() {
 
   new backgroundImage(oktoberfest_img);
+
+
   //table
   noStroke();
   fill('#8b5e3c');
@@ -39,8 +45,12 @@ function draw() {
    textSize(30);
    text('Drink the beer', windowWidth/2,windowHeight-50);
 
+
+
   if(mouseY>(windowHeight-beerE.height/6-20) && mouseY<(windowHeight-20) &&
       mouseX>(windowWidth/4-beerE.width/14) && mouseX<(windowWidth/4+beerE.width/14) ){
+
+
 
    //tiroler
    image(tirolerD,windowWidth/2,windowHeight-tirolerD.height/16-100,tirolerD.width/8,tirolerD.height/8);
@@ -50,13 +60,35 @@ function draw() {
 
    oktoberfest_img.filter("invert");
 
+   var volume = 0;
+
+   volume = analyzer.getLevel();
+   volume = map(volume,0,1,0,height);
+
+   var triangley = volume*0.5 + 10
+     for(var x = 0; x < windowWidth; x+=50)
+   { noStroke();
+     fill('white');
+     triangle(x, 0, x+50, 0, x+25, triangley);
+   }
+
+
    if (trashMusic.isPlaying() == false){
      tirolerMusic.stop();
      trashMusic.play();
 
    }
+
  }
    else {
+
+     var triangley = 0
+       for(var x = 0; x < windowWidth; x+=50)
+     { noStroke();
+       fill('blue');
+       triangle(x, triangley, x+50, triangley, x+25, triangley+50);
+     }
+
 
      //tiroler
      image(tiroler,windowWidth/2,windowHeight-tiroler.height/16-100,tiroler.width/8,tiroler.height/8);
